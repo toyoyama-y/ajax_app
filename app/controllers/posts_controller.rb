@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.all.order(id: "DESC")
   end
@@ -6,6 +7,7 @@ class PostsController < ApplicationController
   def create
     post = Post.create(content: params[:content], checked: false)
     render json:{ post: post }
+  end
 
   def checked
     post = Post.find(params[:id])
@@ -16,6 +18,7 @@ class PostsController < ApplicationController
     end
 
     item = Post.find(params[:id])
-    render json: { post: item }
+    render json:{ post: item }
   end
+
 end
